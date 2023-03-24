@@ -1,34 +1,38 @@
-// Authentification controller
+const bcrypt = require("bcrypt");
+const User = require("../model/user_model");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-//import
-import bcrypt from 'bcrypt';
-import * as userModel from '../model/user.model.js';
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-dotenv.config()
-
-const key = process.env.JWT_KEY;
-
-// Permet de s'inscrire
-export const signin = (req, res, next) => {
-    console.log(req.body);
+//permet de s'inscrire
+exports.signin = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
-            userModel.create({
-                email: req.body.email,
-                password: hash
-            });
-            res.status(201).json({ message: 'Utilisateur créé' });
+            try {
+                User.create({
+                    email: req.body.email,
+                    firstname: req.body.firstname,
+                    password: hash
+                }).then(user => {
+                    res.status(201).json({ message: "Utilisateur créé" });
+                }).catch(error => {
+                    res.status(500).json({ message: error });
+                })
+                
+            } catch (error) {
+                res.status(500).json(error);
+            }
+
         })
         .catch(error => {
-            res.status(500).json({ error });
+            res.status(500).json(error);
         });
-};
+
+}
 
 // permet de ce login
-export const login = (req, res, next) => {
+exports.login = async (req, res, next) => {
     try {
-        const user = userModel.getOne(req.body.email);
+        let user = await User.findOne({email: req.body.email})
         bcrypt.compare(req.body.password, user.password)
             .then(success => {
                 if (success) {
@@ -36,16 +40,17 @@ export const login = (req, res, next) => {
                         email: user.email,
                         jwt: jwt.sign({
                             email: user.email
-                        }, key)
+                        }, process.env.JWT_TOKEN)
                     });
                 } else {
-                    res.status(401).json({ message: 'Mot de passe incorrect' });
+                    res.status(401).json({ message: "Mot de passe incorrect" });
                 }
             })
             .catch(error => {
-                res.status(500).json({ error });
+                res.status(500).json(error);
             })
     } catch (error) {
-        res.status(500).json({ error });
+        res.status(500).json({ message: error.message });
     }
-};
+
+}
