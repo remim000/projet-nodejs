@@ -22,4 +22,6 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/auth', authRoute);
+
 module.exports = app;
