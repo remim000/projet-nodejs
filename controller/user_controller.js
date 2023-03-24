@@ -1,26 +1,13 @@
-import userList from '../data/user.json' assert { type: "json" };
-import fs from 'fs';
+// add la const User
+const User = require("../model/user_model");
 
-// Create un user
-export const create = (user) => {
-    userList.push(user);
-    fs.writeFileSync("data/user.json", JSON.stringify(userList));
+// permet de get tout les utilisateurs
+exports.getAll = (req, res, next) => {
+    User.find()
+    .then(userList => {
+        res.status(200).json(userList);
+    })
+    .catch(error => {
+        res.status(500).json(error);
+    })
 }
-
-// Permet de get un utilisateur en fonction de son mail
-export const getOne = (email) => {
-    const user = userList.find(user => user.email === email);
-    if (user) {
-        return user;
-    } else {
-        throw new Error('Utilisateur non trouvé');
-    }
-}
-
-export const update = () => {
-
-}
-
-// export const delete = () => {
-
-// }
