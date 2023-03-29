@@ -4,7 +4,7 @@ const userRoute = require("./route/user_route");
 const authRoute = require("./route/auth_route");
 const postRoute = require("./route/post_route");
 
-const {connect} = require("./model/connection_model");
+const {connect} = require("./model/connexion_model");
 
 connect();
 
@@ -27,6 +27,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoute);
-app.use('/post', postRoute);
+//app.use('/post', postRoute);
 
 module.exports = app;
