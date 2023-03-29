@@ -1,4 +1,4 @@
-const { Post} = require("../model");
+const { Post} = require("../model/post_model");
 
 exports.createPost = (req, res, next) => {
     if (req.body.title === "" || req.body.content === "") {
