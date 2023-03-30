@@ -1,20 +1,11 @@
-const postList = require("./../data/post.json");
-const fs = require("fs");
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
 
-exports.create = (post) => {
-    postList.push(post);
-    fs.writeFileSync("data/post.json", JSON.stringify(postList, null, 4));
-}
+// Schema pour la BDD
 
-exports.getAll = () => {
-    return postList;
-}
-
-exports.getOne = (title) => {
-    let post = postList.find(post => post.title === title);
-    if (post) {
-        return post;
-    } else {
-        throw new Error("Post non trouvé");
-    }
-}
+const Post = new Schema({
+    titlePost : {type : String, required: true},
+    contentPost : {type : String, required : true}
+  });
+  
+  module.exports = mongoose.model("Post",Post);
