@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path")
-const userRoute = require("./route/user_route");
 const authRoute = require("./route/auth_route");
 const postRoute = require("./route/post_route");
 
@@ -27,6 +26,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/auth', authRoute);
-//app.use('/post', postRoute);
+app.use('/post', postRoute);
 
 module.exports = app;
