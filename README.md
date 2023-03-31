@@ -17,20 +17,21 @@ __Les fonctionnalités sont les suivantes:__{}
 - Inscription (terminé)
 - Connexion (terminé)
 
-- Nouveau post (en cours)
+- Nouveau post (terminé)
 - Récupérer tous les posts (en cours)
 - Récupérer un post et tous les commentaires associés
-- Modifier un post
-- Supprimer un post
+- Modifier un post (en cours)
+- Supprimer un post (en cours)
 
-- Ajouter un commentaire (à un post)
+- Ajouter un commentaire à un post (en cours)
 - Supprimer un commentaire
 
 Les fonctionnalités à mettre en place après les fonctionnalités citées ci-dessus :
 - Catégorisation des posts
 - Formatage des posts avec message et image
 
-- Suppression que par la personne qui a créé le post
-- Date de création d'un utilisateur
+- Suppression que par la personne qui a créé le post (en cours)
+- Date de création d'un utilisateur (en cours)
 
 - Garder en mémoire tous les commentaires (même s'ils sont supprimés)
+- Ne pas autoriser les doublons en email et en username (en cours)
