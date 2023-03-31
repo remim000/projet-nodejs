@@ -3,14 +3,13 @@
 const jwt = require('jsonwebtoken');
 require("dotenv").config();
 
-const key = process.env.JWT_KEY;
 
 module.exports = (req, res, next) => {
     try {
         const token = req.headers.authorization.split(' ')[1];
-        req.token = jwt.verify(token, key);
+        req.token = jwt.verify(token, process.env.JWT_TOKEN);
         next();
     } catch (error) {
-        res.status(401).json({ message: "Autentification incorrecte" });
+        res.status(401).json({ message: "Autentification incorrecte, merci de réessayer" });
     }
 }

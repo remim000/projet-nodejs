@@ -1,15 +1,16 @@
-const Post = require("../model/post_model");
+const postModel = require("../model/post_model");
+const Post = require("../model/user_model");
 require("dotenv").config();
-const bcrypt = require("bcrypt");
 
 // permet de creer un post
 exports.create = (req, res, next) => {
     if (req.body.titlePost === "" || req.body.contentPost === "") {
       return res.status(400).json({ error: "Veuillez remplir tous les Champs pour votre POST SVP ! " });
     }
-    Post.create({
+    postModel.create({
       titlePost: req.body.titlePost,
       contentPost: req.body.contentPost,
+      user: req.token.email
     })
       .then(() => res.status(201).json({ message: "Post enregistré !" }))
       .catch((error) => res.status(400).json({ error }));
