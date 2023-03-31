@@ -1,7 +1,8 @@
 const express = require("express");
-const path = require("path")
+const path = require("path");
 const authRoute = require("./route/auth_route");
 const postRoute = require("./route/post_route");
+const commentaireRoute = require("./route/commentaire_route");
 
 const {connect} = require("./model/connexion_model");
 
@@ -27,5 +28,7 @@ app.use((req, res, next) => {
 
 app.use('/auth', authRoute);
 app.use('/post', postRoute);
+app.use('/commentaire', commentaireRoute);
+
 
 module.exports = app;
