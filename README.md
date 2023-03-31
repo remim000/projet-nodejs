@@ -13,7 +13,7 @@ Cette API à terme, pourra être utilisé par le client.
 
 Nous avons tout d'abord réparti les tâches en fonction des fonctionnalités à mettre en place.
 
-__Les fonctionnalités sont les suivantes:__{}
+__Les fonctionnalités sont les suivantes:__
 - Inscription (terminé)
 - Connexion (terminé)
 
@@ -27,7 +27,7 @@ __Les fonctionnalités sont les suivantes:__{}
 - Supprimer un commentaire
 
 Les fonctionnalités à mettre en place après les fonctionnalités citées ci-dessus :
-- Catégorisation des posts
+- Catégorisation des posts ajout d'un libéllé de post 
 - Formatage des posts avec message et image
 
 - Suppression que par la personne qui a créé le post (en cours)
