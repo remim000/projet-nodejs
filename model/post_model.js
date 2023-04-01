@@ -5,7 +5,8 @@ const { Schema } = mongoose;
 
 const Post = new Schema({
     titlePost : {type : String, required: true},
-    contentPost : {type : String, required : true}
+    contentPost : {type : String, required : true},
+    user : { type: mongoose.ObjectId, ref: 'User' }
   });
   
   module.exports = mongoose.model("Post",Post);

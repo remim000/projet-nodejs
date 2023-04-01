@@ -1,3 +1,5 @@
+//route pour les commentaires
+
 const express = require('express');
 const commentaireController = require('../controller/commentaire_controller.js');
 const auth = require("./../middleware/auth");
