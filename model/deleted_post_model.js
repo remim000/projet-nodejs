@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 // Schema pour la BDD
 
-const Post = new Schema({
+const Deleted_Post = new Schema({
+    _id : {type: mongoose.Types.ObjectId},
     titlePost : {type : String, required: true},
     contentPost : {type : String, required : true},
     categorie : {type:String, required: true},
@@ -11,4 +12,4 @@ const Post = new Schema({
     image: { type: String, required: false}
   });
   
-  module.exports = mongoose.model("Post",Post);
+  module.exports = mongoose.model("Deleted_Post",Deleted_Post);
