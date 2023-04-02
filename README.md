@@ -18,20 +18,21 @@ __Les fonctionnalités sont les suivantes:__
 - Nouveau post (terminé)
 - Récupérer tous les posts (terminé)
 - Récupérer un post et tous les commentaires associés (terminé)
-- Modifier un post (en cours)
+- Modifier un post (terminé)
 - Supprimer un post (terminé)
 
 - Ajouter un commentaire à un post (terminé)
 - Supprimer un commentaire (terminé)
 
 Les fonctionnalités à mettre en place après les fonctionnalités citées ci-dessus :
-- Catégorisation des posts ajout d'un libéllé de post (en cours)
-- Formatage des posts avec message et image (en cours)
+- Catégorisation des posts ajout d'un libéllé de post (terminé)
+- Formatage des posts avec message et image (terminé)
 
 - Suppression que par la personne qui a créé le post (terminé)
-- Date de création d'un utilisateur (en cours)
 
-- Garder en mémoire tous les commentaires (même s'ils sont supprimés)
+- Garder en mémoire tous les commentaires (même s'ils sont supprimés) (terminé)
 - Ne pas autoriser les doublons en email et en username (terminé)
 
 - Vérification de la sécurité dans les posts, users, commentaires (terminé)
+
+- Mettre à jour un commentaire (terminé)
