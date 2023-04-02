@@ -31,11 +31,13 @@ exports.delete = async (req, res, next) => {
   }
 }
 
+// permet d'avoir tout les posts 
 exports.getAll = async (req, res, next) => {
   const dataPost = await Post.find();
   res.status(200).json(dataPost);
 }
 
+//get qu'un post grâce à son ID
 exports.getOne = async (req, res, next) => {
   idPost = req.params;
   const dataPost = await Post.findById(idPost);

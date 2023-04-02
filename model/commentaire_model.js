@@ -8,5 +8,5 @@ const Commentaire = new Schema({
     idPost: { type: mongoose.ObjectId, ref: 'Post' },
     user: { type: mongoose.ObjectId, ref: 'User' }
 });
-  
-  module.exports = mongoose.model("Commentaire",Commentaire);
+
+module.exports = mongoose.model("Commentaire",Commentaire);
