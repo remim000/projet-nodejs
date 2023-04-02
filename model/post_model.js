@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 const Post = new Schema({
     titlePost : {type : String, required: true},
     contentPost : {type : String, required : true},
+    categorie : {type:String, required: true},
     user : { type: mongoose.ObjectId, ref: 'User' }
   });
   
