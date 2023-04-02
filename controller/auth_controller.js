@@ -9,14 +9,8 @@ exports.signin = async (req, res, next) => {
     // Verification si un email est déja utilisé 
     const emailExist = await User.findOne({email: req.body.email})
     if (emailExist){
-        res.status(484).json({ message : "Vous avez déjà un compte avec cette e-mail, merci de prendre une autre email ou de vous connecter :)"});
+        res.status(484).json({ message : "Vous avez déjà un compte avec cette e-mail, merci de prendre un autre email ou de vous connecter :)"});
     }
-
-    // // Verification si un username est déja utilisé 
-    // const userExist = await User.findOne({username: req.body.username})
-    // if (userExist){
-    //     res.status(484).json({ message : "TESTTTT :)"});
-    // }
     else{
         bcrypt.hash(req.body.password, 10)
             .then(hash => {

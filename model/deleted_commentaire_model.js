@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-// Schema pour la BDD
+// Schema pour la BDD pour stocker les commentaires supprimés
 
 const Deleted_Commentaire = new Schema({
     _id : {type: mongoose.Types.ObjectId},
