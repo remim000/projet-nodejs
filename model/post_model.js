@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-// Schema pour la BDD
+// Schema pour la BDD pour les posts
 
 const Post = new Schema({
     titlePost : {type : String, required: true},

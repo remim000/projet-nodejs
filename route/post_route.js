@@ -1,4 +1,4 @@
-//route pour les post
+//route pour les posts
 
 const express = require('express');
 const postController = require('../controller/post_controller.js');
@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post('/', auth, multer, postController.create);
 router.put('/', auth, multer, postController.update);
-router.delete('/', auth,  postController.delete);
+router.delete('/:_id', auth,  postController.delete);
 router.get('/', auth,  postController.getAll);
 router.get('/getOne/:_id', auth, postController.getOne);
 router.get('/:_id', auth, postController.getOneAndCommentaire);

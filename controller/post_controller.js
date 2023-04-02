@@ -9,7 +9,7 @@ require("dotenv").config();
 // permet de creer un post
 exports.create = (req, res, next) => {
     if (req.body.titlePost === "" || req.body.contentPost === "") {
-      return res.status(400).json({ error: "Veuillez remplir tous les Champs pour votre POST SVP ! " });
+      return res.status(400).json({ error: "Veuillez remplir tous les champs pour votre POST SVP ! " });
     }
     const myFile = typeof(req.file);
     if(myFile === 'undefined'){
@@ -19,7 +19,7 @@ exports.create = (req, res, next) => {
         categorie : req.body.categorie,
         user: req.token.id
       })
-        .then(() => res.status(201).json({ message: "Post enregistré !" }))
+        .then(() => res.status(201).json({ message: "Post enregistré avec succés !" }))
         .catch((error) => res.status(400).json({ error }));
     }else{
       Post.create({
@@ -29,7 +29,7 @@ exports.create = (req, res, next) => {
         user: req.token.id,
         image: `${req.protocol}://${req.get("host")}/images/${req.file.filename}`
       })
-        .then(() => res.status(201).json({ message: "Post enregistré !" }))
+        .then(() => res.status(201).json({ message: "Post enregistré ! Merci à vous" }))
         .catch((error) => res.status(400).json({ error }));
     }
   };
@@ -124,6 +124,7 @@ exports.getOneByCategorie = async (req, res, next) => {
   res.status(200).json(dataPost);
 }
 
+//get un seule commentaire 
 exports.getOneAndCommentaire = async (req, res, next) => {
   idPost = req.params;
   const dataPost = await Post.findById(idPost);
